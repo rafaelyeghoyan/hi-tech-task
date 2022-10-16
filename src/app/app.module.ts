@@ -25,7 +25,8 @@ import {ModalModule} from "ngx-bootstrap/modal";
 import {RegstrationDeactiveGuard} from "./shared/Guard/regstration-deactive.guard";
 import {MatListModule} from "@angular/material/list";
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { BottomSheetMenuComponent } from './pages/bottom-sheet-menu/bottom-sheet-menu.component';
+import { BottomSheetMenuComponent } from './components/bottom-sheet-menu/bottom-sheet-menu.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BottomSheetMenuComponent } from './pages/bottom-sheet-menu/bottom-sheet
     ContactUsComponent,
     BlogComponent,
     SigUpComponent,
-    BottomSheetMenuComponent
+    BottomSheetMenuComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

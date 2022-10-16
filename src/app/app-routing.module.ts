@@ -1,65 +1,58 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SigInComponent} from "./pages/sig-in/sig-in.component";
-import {RecoverPasswordComponent} from "./pages/recover-password/recover-password.component";
-import {HomeComponent} from "./pages/home/home.component";
 import {AuthGuard} from "./shared/Guard/auth.guard";
-import {TeacherComponent} from "./pages/teacher/teacher.component";
-import {DonorComponent} from "./pages/donor/donor.component";
-import {ContactUsComponent} from "./pages/contact-us/contact-us.component";
-import {AboutUsComponent} from "./pages/about-us/about-us.component";
-import {BlogComponent} from "./pages/blog/blog.component";
 import {SigUpComponent} from "./pages/sig-up/sig-up.component";
 import {RegstrationDeactiveGuard} from "./shared/Guard/regstration-deactive.guard";
 
 const routes: Routes = [
   {
-    path:"",
-    component:SigInComponent
+    path: "",
+    loadChildren: () => import('./pages/sig-in/sig-in/sig-in-routing.module').then(m => m.SigInRoutingModule)
   },
   {
-    path:"recover-password",
-    component:RecoverPasswordComponent
+    path: "recover-password",
+    loadChildren: () => import('./pages/recover-password/recover-password/recover-password-routing.module').then(m => m.RecoverPasswordRoutingModule)
   },
   {
-    path:"home",
-    component:HomeComponent
+    path: "home",
+    loadChildren: () => import('./pages/home/home/home-routing.module').then(m => m.HomeRoutingModule)
   },
   {
-    path:`teacher`,
-    component:TeacherComponent
+    path: `teacher`,
+    loadChildren: () => import('./pages/teacher/techer/techer-routing.module').then(m => m.TecherRoutingModule)
   },
   {
-    path:`donor`,
-    component:DonorComponent
+    path: `donor`,
+    loadChildren: () => import('./pages/donor/donor/donor-routing.module').then(m => m.DonorRoutingModule)
   },
   {
-    path:`contact-us`,
-    component:ContactUsComponent
+    path: `contact-us`,
+    loadChildren: () => import('./pages/contact-us/contact-us/contact-us-routing.module').then(m => m.ContactUsRoutingModule)
   },
   {
-    path:`about-us`,
-    component:AboutUsComponent
+    path: `about-us`,
+    loadChildren: () => import('./pages/about-us/about-us/about-us-routing.module').then(m => m.AboutUsRoutingModule)
   },
   {
-    path:`blog`,
-    component:BlogComponent
+    path: `blog`,
+    loadChildren: () => import('./pages/blog/blog/blog-routing.module').then(m => m.BlogRoutingModule)
   },
   {
-    path:"resgistration",
-    component:SigUpComponent,
-    canDeactivate:[RegstrationDeactiveGuard]
+    path: "resgistration",
+    loadChildren: () => import('./pages/sig-up/sig-up/sig-up-routing.module').then(m => m.SigUpRoutingModule),
+    canDeactivate: [RegstrationDeactiveGuard]
   },
   {
-    path:"**",
-    component:SigInComponent
+    path: "**",
+    component: SigInComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [ AuthGuard , RegstrationDeactiveGuard]
+  providers: [AuthGuard, RegstrationDeactiveGuard]
 })
 export class AppRoutingModule {
 }

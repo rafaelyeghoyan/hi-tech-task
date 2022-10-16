@@ -5,7 +5,7 @@ import {TranslateService} from "../../shared/services/translate.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {MatBottomSheet, MatBottomSheetRef} from "@angular/material/bottom-sheet";
-import {BottomSheetMenuComponent} from "../../pages/bottom-sheet-menu/bottom-sheet-menu.component";
+import {BottomSheetMenuComponent} from "../bottom-sheet-menu/bottom-sheet-menu.component";
 
 @Component({
   selector: 'app-header',

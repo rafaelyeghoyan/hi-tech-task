@@ -173,6 +173,7 @@ export class SigUpComponent implements OnInit {
   confirm(leaveRegist?: boolean): boolean {
     this.leaveRegistration = leaveRegist;
     this.modalRef?.hide();
+    this.router.navigateByUrl('sign-in')
     return this.leaveRegistration;
   }
   onClick():void {
@@ -234,7 +235,7 @@ export class SigUpComponent implements OnInit {
   canExit() : boolean{
     if(this.registrationForm.touched && this.registrationForm.dirty){
       this.openModal();
-      return this.confirm();
+      return false;
     }
     return true;
   }
