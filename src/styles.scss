@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-ExtraLight.woff2') format('woff2'),
+  url('assets/fonts/Assistant-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-Bold.woff2') format('woff2'),
+  url('assets/fonts/Assistant-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-ExtraLight.woff2') format('woff2'),
+  url('assets/fonts/Assistant-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-Regular.woff2') format('woff2'),
+  url('assets/fonts/Assistant-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-Medium.woff2') format('woff2'),
+  url('assets/fonts/Assistant-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-Light.woff2') format('woff2'),
+  url('assets/fonts/Assistant-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-SemiBold.woff2') format('woff2'),
+  url('assets/fonts/Assistant-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'assets/fonts/Assistant';
+  src: url('assets/fonts/Assistant-ExtraBold.woff2') format('woff2'),
+  url('assets/fonts/Assistant-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  li{
+    list-style-type: none;
+  }
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Assistant' , Arial; }

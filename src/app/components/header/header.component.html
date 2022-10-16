@@ -1,0 +1,61 @@
+<div class="main">
+  <div class="header_content">
+    <div class="logo">
+      <div class="img">
+        <a routerLink="">
+      <img src="assets/images/Logo.png" alt="No images">
+        </a>
+      </div>
+      <h1>{{translate.translations.app_title}}</h1>
+    </div>
+    <div class="menu_block">
+      <ul>
+        <li>
+          <a routerLink="/teacher" routerLinkActive="active">{{translate.translations.menu_teachers}}</a>
+        </li>
+        <li>
+          <a  routerLink="/donor" routerLinkActive="active">{{translate.translations.menu_donor}}</a>
+        </li>
+        <li>
+          <a  routerLink="/about-us" routerLinkActive="active">{{translate.translations.menu_about_us}}</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us"  routerLinkActive="active">{{translate.translations.menu_contact_us}}</a>
+        </li>
+        <li>
+          <a routerLink="/blog"  routerLinkActive="active" >{{translate.translations.menu_blog}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="change_language sign_in">
+    <form class="check_lang">
+      <div>
+        <input type="radio" id="Eng" name="lang" [checked]="true">
+        <label (click)="translate.changeLang('en')" for="Eng">Eng</label>
+      </div>
+      <div>
+        <input type="radio" id="hy" name="lang">
+        <label (click)="translate.changeLang('hy')" for="hy">Հայ</label>
+      </div>
+      <div>
+        <input type="radio" id="ru" name="lang">
+        <label (click)="translate.changeLang('ru')" for="ru">Рус</label>
+      </div>
+    </form>
+    <div class="sign_in">
+      <a routerLink="/sign-in">
+      <img src="assets/images/coolicon.png" alt="No images">
+        <span>{{translate.translations.sign_in}}</span>
+      </a>
+    </div>
+  </div>
+  <div class="dropdown_menu">
+    <div class="menu_icon">
+      <img (click)="openBottomSheet()" src="assets/images/drop_down_menu_icon.png" alt="No images">
+    </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,47 @@
+<div class="main">
+  <div class="container">
+    <div class="sign_in">
+      <form [formGroup]="form" (ngSubmit)="signIn()">
+        <h2>{{translate.translations.sign_in}}</h2>
+        <h4>{{translate.translations.welcome}}</h4>
+        <div class="email">
+        <span [ngClass]="{'showErr':form.controls.email.hasError('pattern')}"
+              *ngIf="form.controls.email.touched  && form.controls.email.hasError('pattern')">{{translate.translations.email_valid}}</span>
+          <input [ngClass]="{'err':form.controls.email.hasError('pattern')}" type="email" formControlName="email"
+                 placeholder="{{translate.translations.email_placeholder}}">
+        </div>
+        <div class="pass">
+        <span [ngClass]="{'showErr':form.controls.password.touched && form.controls.password.hasError('required')}"
+              *ngIf="form.controls.password.touched && form.controls.password.hasError('required')">{{translate.translations.password_valid}}</span>
+          <input [type]="password" #pass placeholder="{{translate.translations.password_placeholder}}"
+                 formControlName="password"
+                 [ngClass]="{'err':form.controls.password.touched && form.controls.password.hasError('required')}">
+          <button type="button" (click)="onClick()">
+            <img src="../../../assets/images/hidepass.png" aria-hidden="true" *ngIf="!show" alt="No images" class="show">
+            <img src="../../../assets/images/showpass.png" aria-hidden="true" *ngIf="show" alt="No images" class="show">
+          </button>
+        </div>
+        <div class="forgot_pass">
+          <a routerLink="/recover-password">{{translate.translations.forgot_password}}</a>
+        </div>
+        <div class="submit_button_block">
+          <button class="submit" type="submit" [disabled]="form.invalid"
+                  >{{translate.translations.sign_in}}</button>
+        </div>
+        <div class="isRecoveredPassword" *ngIf="isRecovedPassword">
+          <div class="image">
+            <img src="../../../assets/images/RecoveredIsSuccess.png" alt="No images">
+            <h5>{{translate.translations.recover_pass_success}}</h5>
+          </div>
+        </div>
+        <div class="register_as">
+          <h4> {{translate.translations.register_as}}</h4>
+          <div class="register_as_button">
+            <a routerLink="/resgistration" (click)="registration('teacher')">{{translate.translations.menu_teachers}}</a>
+            <a  routerLink="/resgistration" (click)="registration('donor')">{{translate.translations.menu_donor}}</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

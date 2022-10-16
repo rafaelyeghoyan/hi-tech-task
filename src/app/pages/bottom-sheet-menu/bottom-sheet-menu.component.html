@@ -1,0 +1,48 @@
+<mat-nav-list>
+  <div class="close_menu">
+    <span (click)="closeBottomSheet()"></span>
+  </div>
+  <div class="header_content">
+    <div class="menu_block">
+      <ul>
+        <li>
+          <a routerLink="/teacher" (click)="closeBottomSheet()" routerLinkActive="active">{{translate.translations.menu_teachers}}</a>
+        </li>
+        <li>
+          <a  routerLink="/donor" (click)="closeBottomSheet()"  routerLinkActive="active">{{translate.translations.menu_donor}}</a>
+        </li>
+        <li>
+          <a  routerLink="/about-us" (click)="closeBottomSheet()"  routerLinkActive="active">{{translate.translations.menu_about_us}}</a>
+        </li>
+        <li>
+          <a routerLink="/contact-us" (click)="closeBottomSheet()"   routerLinkActive="active">{{translate.translations.menu_contact_us}}</a>
+        </li>
+        <li>
+          <a routerLink="/blog" (click)="closeBottomSheet()"  routerLinkActive="active" >{{translate.translations.menu_blog}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="change_language sign_in">
+    <form class="check_lang">
+      <div>
+        <input type="radio" id="Eng_" name="lang" [checked]="true">
+        <label (click)="translate.changeLang('en');closeBottomSheet()" for="Eng_">Eng</label>
+      </div>
+      <div>
+        <input type="radio" id="hy_" name="lang">
+        <label (click)="translate.changeLang('hy');closeBottomSheet()" for="hy_">Հայ</label>
+      </div>
+      <div>
+        <input type="radio" id="ru_" name="lang">
+        <label (click)="translate.changeLang('ru');closeBottomSheet()" for="ru_">Рус</label>
+      </div>
+    </form>
+    <div class="sign_in">
+      <a routerLink="/sign-in" (click)="closeBottomSheet()" >
+        <img src="assets/images/signInlogoBottomSheet.png" alt="No images">
+        <span>{{translate.translations.sign_in}}</span>
+      </a>
+    </div>
+  </div>
+</mat-nav-list>

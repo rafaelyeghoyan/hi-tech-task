@@ -1,0 +1,346 @@
+<div class="main">
+  <div class="container">
+    <div *ngIf="register == 'teacher'" class="registration_as_techer">
+      <form [formGroup]="registrationForm" class="regist">
+        <mat-stepper headerPosition="bottom">
+          <mat-step label="" state=" ">
+            <h2>{{translate.translations.sign_in}}</h2>
+            <h4>{{translate.translations.its_quick_easy}}</h4>
+            <div class="regist_form">
+              <div class="user_name">
+                <div>
+                  <span class="showErr"
+                    *ngIf="registrationForm.controls.name.hasError('required') && registrationForm.controls.name.touched && registrationForm.controls.name.dirty">{{translate.translations.regis_name_error}}</span>
+                  <span class="showErr"
+                        *ngIf="registrationForm.controls.name.hasError('pattern') && registrationForm.controls.name.touched && registrationForm.controls.name.dirty">{{translate.translations.name_dose_have_number}}</span>
+                  <input
+                    [ngClass]="{'err': registrationForm.controls.name.hasError('required')  && (registrationForm.controls.name.touched && registrationForm.controls.name.dirty)}"
+                    type="text" formControlName="name" placeholder="{{translate.translations.regist_name}}">
+                </div>
+                <div>
+                  <span class="showErr"
+                  *ngIf="registrationForm.controls.lastName.invalid && registrationForm.controls.lastName.touched && registrationForm.controls.lastName.dirty">{{translate.translations.regist_last_name_error}}</span>
+                  <input
+                    [ngClass]="{'err': registrationForm.controls.lastName.invalid  && registrationForm.controls.name.touched && registrationForm.controls.lastName.dirty}"
+                    type="text" formControlName="lastName" placeholder="{{translate.translations.regist_last_name}}">
+                </div>
+              </div>
+              <div class="email">
+        <span class="showErr"
+              *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.dirty">{{translate.translations.email_valid}}</span>
+                <input
+                  [ngClass]="{'err': registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.dirty}"
+                  type="email" formControlName="email"
+                  placeholder="{{translate.translations.email_placeholder}}">
+              </div>
+              <div class="user_phone">
+              <span class="showErr"
+                *ngIf="registrationForm.controls.telNumber.hasError('required') && (registrationForm.controls.telNumber.touched && registrationForm.controls.telNumber.dirty)">{{translate.translations.regist_phone_error}}</span>
+                <div>
+                  <input
+                    readonly [ngClass]="{'err':registrationForm.controls.telNumber.hasError('required') && (registrationForm.controls.telNumber.touched  && registrationForm.controls.telNumber.dirty)}"
+                    type="number" placeholder="+374">
+                  <input
+                    [ngClass]="{'err':registrationForm.controls.telNumber.hasError('required') && (registrationForm.controls.telNumber.touched  && registrationForm.controls.telNumber.dirty)}"
+                    type="number" formControlName="telNumber" placeholder="99999999">
+                </div>
+              </div>
+              <div class="user_region">
+            <span class="showErr"
+              *ngIf="registrationForm.controls.region.hasError('required') && registrationForm.controls.region.touched">
+              Region is required
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err': registrationForm.controls.region.hasError('required')  && registrationForm.controls.region.touched}"
+                  [placeholder]="translate.translations.regist_region"
+                  [settings]="user_region_dropdownSettings"
+                  [data]="user_region_list"
+                  [(ngModel)]="selected_user_region"
+                  [formControl]="registrationForm.controls.region"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_city">
+            <span class="showErr"
+              *ngIf="registrationForm.controls.city.invalid && registrationForm.controls.city.touched">
+              City, Village is required
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err':registrationForm.controls.city.invalid && registrationForm.controls.city.touched}"
+                  [placeholder]="translate.translations.regist_city"
+                  [settings]="user_city_dropdownSettings"
+                  [data]="user_city_list"
+                  [(ngModel)]="selected_user_city"
+                  [formControl]="registrationForm.controls.city"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_school">
+             <span class="showErr"
+               *ngIf="registrationForm.controls.school.invalid && registrationForm.controls.school.touched">
+              {{translate.translations.regist_school_error}}
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err':registrationForm.controls.school.invalid && registrationForm.controls.school.touched}"
+                  [formControl]="registrationForm.controls.school"
+                  [placeholder]="translate.translations.regist_school"
+                  [settings]="user_school_dropdownSettings"
+                  [data]="user_school_list"
+                  [(ngModel)]="selected_user_school"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_subject">
+            <span class="showErr"
+              *ngIf="registrationForm.controls.subject.invalid && registrationForm.controls.subject.touched">
+              {{translate.translations.regist_subject_error}}
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err':registrationForm.controls.subject.invalid && registrationForm.controls.subject.touched}"
+                  [formControl]="registrationForm.controls.subject"
+                  [placeholder]="translate.translations.regist_subject"
+                  [settings]="user_subject_dropdownSettings"
+                  [data]="user_subject_list"
+                  [(ngModel)]="selected_user_subject"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_grade">
+             <span class="showErr"
+               *ngIf="registrationForm.controls.grade.invalid && registrationForm.controls.grade.touched">
+              {{translate.translations.regist_grade_error}}
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err':registrationForm.controls.grade.invalid && registrationForm.controls.grade.touched}"
+                  [formControlName]="'grade'"
+                  [placeholder]="translate.translations.regist_grade"
+                  [settings]="user_grade_dropdownSettings"
+                  [data]="user_grade_list"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="pass">
+                <span class="showErr" *ngIf="!confirmPassword">{{translate.translations.regist_confirm_pass}}</span>
+                <span class="showErr"
+                  *ngIf="registrationForm.controls.password.hasError('pattern') && registrationForm.controls.password.touched && registrationForm.controls.password.dirty">{{translate.translations.regist_pass_error}}</span>
+                <input [formControl]="registrationForm.controls.password"
+                       [ngClass]="{'err': registrationForm.controls.password.invalid  && registrationForm.controls.password.touched && registrationForm.controls.password.dirty}"
+                       [type]="password" placeholder="{{translate.translations.password_placeholder}}" formControlName="password">
+                <button type="button" (click)="onClick()" class="view_password">
+                  <img src="../../../assets/images/hidepass.png" aria-hidden="true" *ngIf="!show" alt="No images"
+                       class="show">
+                  <img src="../../../assets/images/showpass.png" aria-hidden="true" *ngIf="show" alt="No images"
+                       class="show">
+                </button>
+              </div>
+              <div class="pass confirm">
+              <span class="showErr"
+                *ngIf="registrationForm.controls.confirm_password.touched && registrationForm.controls.confirm_password.invalid  && registrationForm.controls.confirm_password.dirty">{{translate.translations.password_valid}}</span>
+                <span class="showErr" *ngIf="!confirmPassword">{{translate.translations.regist_confirm_pass}}</span>
+                <input [formControl]="registrationForm.controls.confirm_password"
+                       [ngClass]="{'err': registrationForm.controls.confirm_password.invalid  && registrationForm.controls.confirm_password.touched  && registrationForm.controls.confirm_password.dirty}"
+                       [type]="password2" placeholder="{{translate.translations.confirm_password}}"
+                        formControlName="password">
+                <button type="button" (click)="onClick2()" class="view_password">
+                  <img src="../../../assets/images/hidepass.png" aria-hidden="true" *ngIf="!show2" alt="No images"
+                       class="show">
+                  <img src="../../../assets/images/showpass.png" aria-hidden="true" *ngIf="show2" alt="No images"
+                       class="show">
+                </button>
+              </div>
+              <div class="buttons_block">
+                <span (click)="register = 'donor'; registrationForm.reset()">{{translate.translations.regist_as_a_donor}}</span>
+                  <button matStepperNext>{{translate.translations.ok}}</button>
+              </div>
+            </div>
+          </mat-step>
+          <mat-step label="" state="">
+            <h2>{{translate.translations.verify_account}} <span (click)="comeBack()">X</span></h2>
+            <h4>{{translate.translations.email_velify}}</h4>
+            <form [formGroup]="verifyForm" class="verify_account">
+              <input type="number" formControlName="verify_code"
+                     placeholder="{{translate.translations.verify_code_placeholder}}">
+              <div class="button_suubmit">
+                <a routerLink="">
+                <button type="submit" (click)="registNewUser()">{{translate.translations.ok}}</button>
+                </a>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+        </mat-stepper>
+
+      </form>
+    </div>
+    <div *ngIf="register == 'donor'"  class="registration_as_donor">
+      <form [formGroup]="registrationForm" class="regist">
+        <mat-stepper headerPosition="bottom">
+          <mat-step label="" state=" ">
+            <h2>{{translate.translations.sign_in}}</h2>
+            <h4>{{translate.translations.its_quick_easy}}</h4>
+            <div class="regist_form">
+              <div class="user_name">
+                <div>
+                  <span class="showErr"
+                        *ngIf="registrationForm.controls.name.hasError('required') && registrationForm.controls.name.touched && registrationForm.controls.name.dirty">{{translate.translations.regis_name_error}}</span>
+                  <span class="showErr"
+                        *ngIf="registrationForm.controls.name.hasError('pattern') && registrationForm.controls.name.touched && registrationForm.controls.name.dirty">{{translate.translations.name_dose_have_number}}</span>
+                  <input
+                    [ngClass]="{'err': registrationForm.controls.name.hasError('required')  && (registrationForm.controls.name.touched && registrationForm.controls.name.dirty)}"
+                    type="text" formControlName="name" placeholder="{{translate.translations.regist_name}}">
+                </div>
+                <div>
+                  <span class="showErr"
+                        *ngIf="registrationForm.controls.lastName.invalid && registrationForm.controls.lastName.touched && registrationForm.controls.lastName.dirty">{{translate.translations.regist_last_name_error}}</span>
+                  <input
+                    [ngClass]="{'err': registrationForm.controls.lastName.invalid  && registrationForm.controls.name.touched && registrationForm.controls.lastName.dirty}"
+                    type="text" formControlName="lastName" placeholder="{{translate.translations.regist_last_name}}">
+                </div>
+              </div>
+              <div class="email">
+        <span class="showErr"
+              *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.dirty">{{translate.translations.email_valid}}</span>
+                <input
+                  [ngClass]="{'err': registrationForm.controls.email.invalid && registrationForm.controls.email.touched && registrationForm.controls.email.dirty}"
+                  type="email" formControlName="email"
+                  placeholder="{{translate.translations.email_placeholder}}">
+              </div>
+              <div class="user_phone">
+              <span
+                *ngIf="registrationForm.controls.telNumber.hasError('pattern') && registrationForm.controls.telNumber.touched && registrationForm.controls.telNumber.dirty">{{translate.translations.regist_phone_error}}</span>
+                <div>
+                  <select formControlName="telCode" [ngClass]="{err:registrationForm.controls.telNumber.invalid && registrationForm.controls.telNumber.touched}">
+                    <option selected hidden>{{translate.translations.select_code_placeholder}}</option>
+                    <option >+374</option>
+                    <option >+7</option>
+                    <option >+376</option>
+                    <option >+213</option>
+                  </select>
+                  <input
+                    [ngClass]="{err:registrationForm.controls.telNumber.invalid && registrationForm.controls.telNumber.touched  && registrationForm.controls.telNumber.dirty}"
+                    type="number" formControlName="telNumber" placeholder="99999999">
+                </div>
+              </div>
+              <div class="user_country">
+            <span class="showErr"
+                  *ngIf="registrationForm.controls.region.invalid && registrationForm.controls.region.touched">
+              {{translate.translations.regist_country_error}}
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err': registrationForm.controls.city.invalid  && registrationForm.controls.city.touched}"
+                  [placeholder]="translate.translations.regist_country"
+                  [settings]="user_region_dropdownSettings"
+                  [data]="user_region_list"
+                  [(ngModel)]="selected_user_region"
+                  [formControl]="registrationForm.controls.region"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_region">
+            <span class="showErr"
+                  *ngIf="registrationForm.controls.region.invalid && registrationForm.controls.region.touched">
+              Region is required
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err': registrationForm.controls.name.invalid  && registrationForm.controls.region.touched}"
+                  [placeholder]="translate.translations.regist_state"
+                  [settings]="user_region_dropdownSettings"
+                  [data]="user_region_list"
+                  [(ngModel)]="selected_user_region"
+                  [formControl]="registrationForm.controls.region"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="user_city">
+            <span class="showErr"
+                  *ngIf="registrationForm.controls.city.invalid && registrationForm.controls.city.touched">
+              {{translate.translations.regist_city_error}}
+            </span>
+                <ng-multiselect-dropdown
+                  [ngClass]="{'err':registrationForm.controls.city.invalid && registrationForm.controls.city.touched}"
+                  [placeholder]="translate.translations.regist_donor_city"
+                  [settings]="user_city_dropdownSettings"
+                  [data]="user_city_list"
+                  [(ngModel)]="selected_user_city"
+                  [formControl]="registrationForm.controls.city"
+                >
+                </ng-multiselect-dropdown>
+                <img src="../../../assets/images/drop_icon.png" alt="No images">
+              </div>
+              <div class="pass">
+                <span class="showErr" *ngIf="!confirmPassword">{{translate.translations.regist_confirm_pass}}</span>
+                <span class="showErr"
+                      *ngIf="registrationForm.controls.password.hasError('pattern') && registrationForm.controls.password.touched && registrationForm.controls.password.dirty">{{translate.translations.regist_pass_error}}</span>
+                <input [formControl]="registrationForm.controls.password"
+                       [ngClass]="{'err': registrationForm.controls.password.invalid  && registrationForm.controls.password.touched && registrationForm.controls.password.dirty}"
+                       [type]="password" placeholder="{{translate.translations.password_placeholder}}" formControlName="password">
+                <button type="button" (click)="onClick()" class="view_password">
+                  <img src="../../../assets/images/hidepass.png" aria-hidden="true" *ngIf="!show" alt="No images"
+                       class="show">
+                  <img src="../../../assets/images/showpass.png" aria-hidden="true" *ngIf="show" alt="No images"
+                       class="show">
+                </button>
+              </div>
+              <div class="pass confirm">
+              <span class="showErr"
+                    *ngIf="registrationForm.controls.confirm_password.touched && registrationForm.controls.confirm_password.invalid  && registrationForm.controls.confirm_password.dirty">{{translate.translations.password_valid}}</span>
+                <span class="showErr" *ngIf="!confirmPassword">{{translate.translations.regist_confirm_pass}}</span>
+                <input [formControl]="registrationForm.controls.confirm_password"
+                       [ngClass]="{'err': registrationForm.controls.confirm_password.invalid  && registrationForm.controls.confirm_password.touched  && registrationForm.controls.confirm_password.dirty}"
+                       [type]="password2" placeholder="{{translate.translations.confirm_password}}"
+                       formControlName="password">
+                <button type="button" (click)="onClick2()" class="view_password">
+                  <img src="../../../assets/images/hidepass.png" aria-hidden="true" *ngIf="!show2" alt="No images"
+                       class="show">
+                  <img src="../../../assets/images/showpass.png" aria-hidden="true" *ngIf="show2" alt="No images"
+                       class="show">
+                </button>
+              </div>
+            </div>
+            <div class="buttons_block">
+              <span (click)="register = 'teacher'; registrationForm.reset()">{{translate.translations.regist_as_a_teacher}}</span>
+              <button matStepperNext (click)="registNewUser()">{{translate.translations.ok}}</button>
+            </div>
+          </mat-step>
+          <mat-step label="" state="">
+            <h2>{{translate.translations.verify_account}} <span (click)="comeBack()">X</span></h2>
+            <h4>{{translate.translations.email_velify}}</h4>
+            <form [formGroup]="verifyForm" class="verify_account">
+              <input type="number" formControlName="verify_code"
+                     placeholder="{{translate.translations.verify_code_placeholder}}">
+              <div class="button_suubmit">
+                <button (click)="registNewUser()">{{translate.translations.ok}}</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+          <mat-step label="" state="">
+          </mat-step>
+        </mat-stepper>
+      </form>
+    </div>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-body">
+      <h2 class="modal_title">{{translate.translations.regist_cencel}}</h2>
+      <button type="button" class="btn btn-primary" (click)="confirm(true)">{{translate.translations.continu_registration}}</button>
+      <button type="button" class="btn btn-default" (click)="confirm(false)">{{translate.translations.leave_registration}}</button>
+    </div>
+  </ng-template>
+</div>

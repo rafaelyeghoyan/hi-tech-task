@@ -1,0 +1,606 @@
+.main {
+  padding-bottom: 50px;
+
+  .container {
+    width: 432px;
+    background: #F8F8F8;
+    box-shadow: 0 1px 24px rgba(61, 61, 61, 0.18);
+    border-radius: 20px;
+    margin: 48px auto;
+    padding: 0 16px;
+
+    .verify_account {
+      padding-top: 16px;
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .button_suubmit {
+        padding-top: 544px;
+
+        button {
+          display: block;
+          width: 100%;
+          border: none;
+          background: #34C88A;
+          border-radius: 10px;
+          font-family: 'Assistant';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          padding: 12px 0;
+          color: #FFFFFF;
+        }
+      }
+    }
+
+    form {
+      padding-bottom: 24px;
+      background: #F8F8F8;
+
+      ::ng-deep .mat-horizontal-content-container {
+        background: #F8F8F8;
+        width: 100%;
+        padding: 0;
+      }
+
+      h2 {
+        margin: 0;
+        padding-top: 32px;
+        padding-bottom: 16px;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 24px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #194866;
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 9px;
+          right: 5px;
+          color: #194866;
+          font-size: 18px;
+          cursor: pointer;
+        }
+
+        span:hover {
+          transform: rotate(360deg);
+          transition: transform 0.8s;
+        }
+      }
+
+      h4 {
+        margin: 0;
+        padding-bottom: 16px;
+        text-align: center;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        color: #194866;
+        border-bottom: 0.5px solid rgba(25, 72, 102, 0.5);
+      }
+
+      .email {
+        position: relative;
+
+        .showErr {
+          position: absolute;
+          top: -10px;
+          background-color: #F8F8F8;
+          left: 7px;
+          font-family: 'Assistant';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 24px;
+          color: #D80027;
+        }
+
+        .err {
+          border-color: #D80027;
+          outline: none;
+        }
+      }
+
+      .pass {
+        position: relative;
+
+        .showErr {
+          position: absolute;
+          top: -13px;
+          background-color: #F8F8F8;
+          left: 7px;
+          font-family: 'Assistant';
+          font-style: normal;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 24px;
+          color: #D80027;
+        }
+
+        input {
+          padding-right: 50px;
+        }
+
+        .err {
+          border-color: #D80027;
+          outline: none;
+        }
+
+        button {
+          background: none;
+          border: none;
+        }
+
+        button {
+          position: absolute;
+          right: -2px;
+          top: -8px;
+        }
+      }
+
+      input {
+        width: 100%;
+        height: 48px;
+        border: 0.5px solid rgba(25, 72, 102, 0.8);
+        border-radius: 10px;
+        padding-left: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #F8F8F8;
+      }
+
+      input::placeholder {
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #194866;
+      }
+
+      ::ng-deep .dropdown-btn {
+        border: 0.5px solid rgba(25, 72, 102, 0.8);
+        border-radius: 10px;
+        width: 100%;
+        height: 48px;
+        background-color: #F8F8F8;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #194866;
+        padding: 12px 16px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        :hover {
+          box-shadow: none;
+        }
+
+        ::ng-deep .dropdown-down, ::ng-deep .dropdown-up {
+          display: none;
+        }
+
+        ::ng-deep .dropdown-multiselect--active {
+          display: none;
+        }
+
+        .dropdown-multiselect__caret:before {
+          display: none;
+        }
+      }
+    }
+
+    .confirm {
+      position: relative;
+
+      span.showErr {
+        position: absolute;
+        background-color: #F8F8F8;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+        color: #D80027;
+      }
+    }
+
+    ::ng-deep .mat-step-icon {
+      background: rgba(52, 200, 138, 0.25);
+      width: 12px;
+      height: 12px;
+    }
+
+    ::ng-deep .mat-step-icon-selected {
+      background: rgba(52, 200, 138, 1);
+    }
+
+    ::ng-deep .mat-stepper-horizontal-line {
+      display: none;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-header {
+      height: 25px;
+      padding: 0;
+    }
+
+    ::ng-deep .mat-step-icon-content {
+      display: none;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-header-container {
+      background-color: rgba(255, 255, 255, 0);
+      width: 100px;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-wrapper {
+      align-items: center;
+      background-color: rgba(248, 248, 248, 0);
+    }
+
+    ::ng-deep .mat-step-header {
+      pointer-events: none;
+      position: relative;
+      bottom: -59px;
+    }
+
+    ::ng-deep .mat-stepper-horizontal {
+      background-color: #F8F8F8;
+    }
+
+    ::ng-deep .mat-horizontal-stepper-content {
+      background: #F8F8F8;
+
+
+      .regist_form {
+        padding-top: 16px;
+
+        .user_subject, .user_grade {
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox] + div:before {
+            left: 95%;
+            padding: 0 !important;
+            background: rgba(25, 72, 102, 0.2);
+            border-color: rgba(25, 72, 102, 0.2);
+            display: block;
+          }
+
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox]:checked + div:before {
+            border-color: #34C88A;
+            background: #34C88A;
+            display: block;
+          }
+
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox] + div:after {
+            display: block;
+            left: 96%;
+            border-color: #FFFFFF;
+          }
+        }
+
+        .user_name {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          div {
+            margin: 0 !important;
+
+            input {
+              margin: 0;
+              display: inline-block;
+              width: 192px;
+            }
+
+            .err {
+              border-color: #D80027;
+            }
+          }
+        }
+
+        div {
+          position: relative;
+
+          span.showErr {
+            display: inline-block;
+            position: absolute;
+            top: -13px;
+            background-color: #F8F8F8;
+            left: 7px;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 24px;
+            color: #D80027;
+            z-index: 2;
+          }
+
+          ::ng-deep .selected-item {
+            border: 1px solid #34C88A;
+            margin-right: 4px;
+            background: #34C88A;
+            padding: 0 5px;
+            color: #fff;
+            border-radius: 2px;
+            float: left;
+            display: flex;
+            max-width: 120px;
+          }
+
+          .err {
+            border-color: #D80027;
+
+            ::ng-deep .dropdown-btn {
+              border-color: #D80027;
+            }
+          }
+
+          ul.item1 {
+            li:first-child {
+              display: none;
+            }
+          }
+
+          ::ng-deep .selected-item {
+            border: 1px solid #34C88A;
+            margin-right: 4px;
+            background: #34C88A;
+            padding: 0 5px;
+            color: #fff;
+            border-radius: 2px;
+            float: left;
+            display: flex;
+            max-width: 130px;
+          }
+
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox] + div:before {
+            left: 95%;
+            padding: 0 !important;
+            background: rgba(25, 72, 102, 0.2);
+            border-color: rgba(25, 72, 102, 0.2);
+            display: none;
+          }
+
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox]:checked + div:before {
+            border-color: #34C88A;
+            background: #34C88A;
+            display: none;
+          }
+
+          ::ng-deep .multiselect-item-checkbox input[type=checkbox] + div:after {
+            display: none;
+            left: 96%;
+            border-color: #FFFFFF;
+          }
+
+          input {
+            outline: none;
+          }
+
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          img {
+            position: absolute;
+            top: 20px;
+            right: 16px;
+          }
+        }
+
+        div:nth-child(1n+2) {
+          margin-top: 16px;
+        }
+
+        div.user_phone {
+          div {
+            input:first-child {
+              position: absolute;
+              left: 0;
+              border-bottom-right-radius: 0;
+              border-top-right-radius: 0;
+              width: 64px;
+            }
+
+            input:last-child {
+              padding-left: 70px;
+            }
+          }
+        }
+      }
+
+    }
+
+    .buttons_block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: #34C88A;
+      }
+
+      button {
+        display: inline-block;
+        border: none;
+        background: #34C88A;
+        border-radius: 10px;
+        font-family: 'Assistant';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        padding: 12px 25px;
+        color: #FFFFFF;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+      }
+
+    }
+
+    .registration_as_donor {
+
+      .buttons_block {
+        margin-top: 84px;
+      }
+
+      .user_phone {
+        div {
+          position: relative;
+
+          select {
+            position: absolute;
+            left: 0;
+            width: 129px;
+            height: 48px;
+            border: 0.5px solid rgba(25, 72, 102, 0.8);
+            border-radius: 10px 0 0 10px;
+            background-color: #F8F8F8;
+            padding-left: 16px;
+            font-family: 'Assistant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            color: #194866;
+          }
+
+          input {
+            padding-left: 145px;
+          }
+        }
+      }
+
+      .err {
+        border-color: #D80027;
+      }
+
+      .showErr {
+        color: #D80027;
+      }
+
+    }
+  }
+}
+
+::ng-deep .modal-sm {
+  background: #F8F8F8;
+  box-shadow: 0px 1px 24px rgba(61, 61, 61, 0.18);
+  border-radius: 20px;
+  max-width: 432px;
+  padding: 24px 16px 0;
+
+  ::ng-deep .modal-content {
+    border: none;
+    background: #F8F8F8;
+
+    h2 {
+      margin: 0;
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 24px;
+      text-align: center;
+      color: #194866;
+      padding-bottom: 16px;
+      border-bottom: 0.5px solid rgba(25, 72, 102, 0.5);;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      color: #194866;
+      background: #F8F8F8;
+      border: 0.5px solid rgba(25, 72, 102, 0.3);
+      box-shadow: 0px 2px 8px rgba(25, 72, 102, 0.16);
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      color: #FFFFFF;
+      background: #34C88A;
+      margin-top: 88px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 0;
+
+    .container {
+      width: 95%;
+      border-radius: 0;
+      margin: 0;
+      box-shadow: none;
+
+      ::ng-deep .mat-horizontal-stepper-header-container {
+        display: none;
+      }
+
+      .buttons_block {
+        flex-direction: column-reverse;
+
+        button {
+          width: 100%;
+          margin-bottom: 16px;
+        }
+
+      }
+
+      .regist_form {
+        .user_name {
+          input {
+            width: 97%;
+          }
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
